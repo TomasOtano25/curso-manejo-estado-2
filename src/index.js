@@ -14,6 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   // <App saludo="Hola Todos" />
-  <App> Buenass </App>
+  // <App> Buenass </App>
+  <App />
   // </React.StrictMode>
 );
