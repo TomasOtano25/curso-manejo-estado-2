@@ -2,5 +2,16 @@ import React from "react";
 import "./CreateTodoButton.css";
 
 export function CreateTodoButton() {
-  return <button className="CreateTodoButton">+</button>;
+  const onClickButton = (msg) => {
+    alert(msg);
+  };
+
+  return (
+    <button
+      className="CreateTodoButton"
+      onClick={() => onClickButton("Aqui deberia haber un modal")}
+    >
+      +
+    </button>
+  );
 }
