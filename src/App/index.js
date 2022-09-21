@@ -8,21 +8,32 @@ import { AppUI } from "./AppUI";
 //   { text: "Hola Mundo", completed: false },
 // ];
 
-function App() {
-  const localStorageTodos = localStorage.getItem("TODOS_V1");
+function useLocalStorage(itemName, initialValue) {
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
 
-  let parsedTodos;
-
-  if (!localStorageTodos) {
-    localStorage.setItem("TODOS_V1", JSON.stringify([]));
-    parsedTodos = [];
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
   } else {
-    parsedTodos = JSON.parse(localStorageTodos);
+    parsedItem = JSON.parse(localStorageItem);
   }
 
-  const [searchValue, setSearchValue] = React.useState("");
+  const [item, setItem] = React.useState(parsedItem);
 
-  const [todos, setTodos] = React.useState(parsedTodos);
+  const saveItem = (newItem) => {
+    const stringifyTodos = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifyTodos);
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+}
+
+function App() {
+  const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
+
+  const [searchValue, setSearchValue] = React.useState("");
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -39,19 +50,13 @@ function App() {
     });
   }
 
-  const saveTodos = (newTodos) => {
-    const stringifyTodos = JSON.stringify(newTodos);
-    localStorage.setItem("TODOS_V1", stringifyTodos);
-    setTodos(newTodos);
-  };
-
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text == text);
 
-    const newTodos = [...todos];
-    newTodos[todoIndex].completed = true;
-    saveTodos(newTodos);
-    // newTodos[todoIndex] = {
+    const newItem = [...todos];
+    newItem[todoIndex].completed = true;
+    saveTodos(newItem);
+    // newItem[todoIndex] = {
     //   text: todos[todoIndex].text,
     //   completed: true,
     // };
@@ -60,9 +65,9 @@ function App() {
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text == text);
 
-    const newTodos = [...todos];
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
+    const newItem = [...todos];
+    newItem.splice(todoIndex, 1);
+    saveTodos(newItem);
   };
 
   return (
