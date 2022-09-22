@@ -1,7 +1,7 @@
 import React from "react";
-import "./TodoLoading.css";
+import "./TodosLoading.css";
 
-function TodoLoading() {
+function TodosLoading() {
   return (
     <div className="LoadingTodo-container">
       <div className="LoaderBalls">
@@ -13,4 +13,4 @@ function TodoLoading() {
   );
 }
 
-export { TodoLoading };
+export { TodosLoading };

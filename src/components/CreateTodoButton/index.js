@@ -1,10 +1,7 @@
 import React from "react";
-import { useTodos } from "../../App/useTodos";
 import "./CreateTodoButton.css";
 
-export function CreateTodoButton() {
-  const { openModal, setOpenModal } = useTodos();
-
+export function CreateTodoButton({ setOpenModal }) {
   const onClickButton = (msg) => {
     // if (!!openModal) {
     //   setOpenModal(false);
