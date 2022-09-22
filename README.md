@@ -24,3 +24,7 @@ Proyecto practico del curso de introducion a react de Platzi
 
 - Figma
 - Illustrator
+
+## Deplay en Github
+
+`npm install --save-dev gh-pages`
