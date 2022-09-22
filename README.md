@@ -27,4 +27,27 @@ Proyecto practico del curso de introducion a react de Platzi
 
 ## Deplay en Github
 
-`npm install --save-dev gh-pages`
+```
+npm install --save-dev gh-pages
+```
+
+Agregar en el `package.json`:
+
+```json
+"homepage":"https://yourusername.github.io/repository-name"
+```
+
+Y ademas los Scripts:
+
+```json
+"scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+}
+```
+
+Por ultimo ejecutamos el comando:
+
+```
+npm run deploy
+```
