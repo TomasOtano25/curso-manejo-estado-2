@@ -6,6 +6,8 @@ Proyecto practico del curso de introducion a react de Platzi
 
 ![Este es un screen de la app](https://github.com/TomasOtano25/curso-intro-react/blob/main/screen/screen-1.png)
 
+![Esta es otro imagen de la app](https://github.com/TomasOtano25/curso-intro-react/blob/main/screen/screen-2.png)
+
 ## Link
 
 [Skeletonreact](https://skeletonreact.com/)
