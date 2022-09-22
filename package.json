@@ -1,6 +1,6 @@
 {
   "homepage": "https://TomasOtano25.github.io/curso-intro-react",
-  "name": "curso-intro-react",
+  "name": "curso-react-patrones-render",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -53,3 +53,11 @@ Por ultimo ejecutamos el comando:
 ```
 npm run deploy
 ```
+
+# Comandos de instalacion
+
+```
+git clone https://github.com/TomasOtano25/curso-intro-react.git .
+npm install
+npm run start
+```
