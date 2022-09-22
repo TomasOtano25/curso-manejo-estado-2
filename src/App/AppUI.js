@@ -6,6 +6,7 @@ import { TodoList } from "../components/TodoList";
 import { TodoItem } from "../components/TodoItem";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../Modal";
+import { TodoForm } from "../components/TodoForm";
 
 function AppUI() {
   const {
@@ -40,7 +41,11 @@ function AppUI() {
         ))}
       </TodoList>
 
-      {!!openModal && <Modal>{searchedTodos[0]?.text}</Modal>}
+      {!!openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
 
       <CreateTodoButton setOpenModal={setOpenModal} />
     </React.Fragment>
