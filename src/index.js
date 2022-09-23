@@ -1,20 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+// import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// const e = React.createElement;
+function App(props) {
+  return (
+    <h1>
+      {props.saludo}, {props.nombre}!
+    </h1>
+  );
+}
 
-// function App() {
-//   return React.createElement("h1", { id: "title" }, "Oli React");
-// }
+function withSaludo(saludo) {
+  return function WrappedComponentWithSaludo(WrappedComponent) {
+    // TODO: fetch
 
-root.render(
-  // <React.StrictMode>
-  // <App saludo="Hola Todos" />
-  // <App> Buenass </App>
-  <App />
-  // </React.StrictMode>
-);
+    return function ComponenteDeVerdad(props) {
+      return (
+        <React.Fragment>
+          <WrappedComponent {...props} saludo={saludo} />
+          <p>Estamos acompañando al wrappedcomponent</p>
+        </React.Fragment>
+      );
+    };
+  };
+}
+
+const AppWithSaludo = withSaludo("Hey")(App);
+
+root.render(<AppWithSaludo nombre="Tomas" />);
