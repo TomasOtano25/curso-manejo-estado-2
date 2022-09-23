@@ -38,16 +38,16 @@ function App() {
 
   return (
     <React.Fragment>
-      <TodoHeader>
+      <TodoHeader loading={loading}>
         <TodoCounter
           completedTodos={completedTodos}
           totalTodos={totalTodos}
-          loading={loading}
+          // loading={loading}
         />
         <TodoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-          loading={loading}
+          // loading={loading}
         />
       </TodoHeader>
 
