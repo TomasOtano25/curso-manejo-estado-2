@@ -18,14 +18,15 @@ function useStorageListener(sincronize) {
     };
   }, []);
 
-  const toogleShow = () => {
+  const toggleShow = () => {
+    console.log("Click");
     setStorageChange(false);
     sincronize();
   };
 
   return {
     show: storageChange,
-    toogleShow,
+    toggleShow,
   };
 }
 
