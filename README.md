@@ -58,6 +58,8 @@ npm run deploy
 
 ```
 git clone https://github.com/TomasOtano25/curso-intro-react.git .
+
 npm install
+
 npm run start
 ```
